@@ -1,8 +1,7 @@
 /*CRUD*/
 /*https://sequelize.org/master/class/lib/model.js~Model.html*/
-const bcrypt = require('bcrypt');
-const { User } = require('./db/models');
-
+import { User } from './db/models';
+import bcrypt from 'bcrypt';
 /*
 Model.*
 C - createUser      - Model.create()
