@@ -1,5 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
+const bcrypt = require('bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -26,7 +27,14 @@ module.exports = (sequelize, DataTypes) => {
       lastName: DataTypes.STRING,
       email: DataTypes.STRING,
       login: DataTypes.STRING,
-      passwordHash: DataTypes.STRING,
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        field: 'passwordHash',
+        set(val) {
+          this.setDataValue('password', bcrypt.hashSync(val, 10));
+        },
+      },
     },
     {
       sequelize,
