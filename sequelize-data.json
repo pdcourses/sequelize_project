@@ -1,5 +1,1 @@
-[
-  "20211226091414-users.js",
-  "20211226114018-tasks.js",
-  "seed-users.js"
-]
+["seed-users.js", "seed-tasks.js"]

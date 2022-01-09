@@ -15,6 +15,8 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       isDone: {
         type: Sequelize.BOOLEAN,

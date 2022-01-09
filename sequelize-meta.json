@@ -1,5 +1,1 @@
-[
-  "20211226114322-create-task.js",
-  "create-user.js",
-  "create-task.js"
-]
+["createuser.js", "createtask.js"]
