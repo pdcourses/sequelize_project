@@ -5,19 +5,20 @@ import {
   deleteUserById,
   updateUserById,
 } from '../controllers/user';
+import userSchema from '../validations';
 
 const userRouter = express.Router();
 
 // дабавить пользователя в базу
-userRouter.post('/', createUser);
+userRouter.post('/', userSchema, createUser);
 
 //получить юзера по айди
-userRouter.get('/:userId', getUserById);
+userRouter.get('/:userId', userSchema, getUserById);
 
 // обновить юзера по айди
-userRouter.patch('/:userId', updateUserById);
+userRouter.patch('/:userId', userSchema, updateUserById);
 
 //удалить юзера по айди
-userRouter.delete('/:userId', deleteUserById);
+userRouter.delete('/:userId', userSchema, deleteUserById);
 
 export default userRouter;

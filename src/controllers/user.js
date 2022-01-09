@@ -4,14 +4,15 @@ import { User } from './../db/models';
 
 //id??? req.params.userId
 
-export async function createUser(req, res) {
+export async function createUser(req, res, next) {
   try {
     const newUser = await User.create(req.body);
     if (newUser) {
       return res.status(201).send(newUser);
     }
+    return next(new Error());
   } catch (e) {
-    console.log('post error');
+    next(e);
   }
 }
 
@@ -25,8 +26,9 @@ export async function getUserById(req, res) {
     if (foundUser) {
       return res.status(201).send(foundUser);
     }
+    return next(new Error());
   } catch (e) {
-    console.log('get error');
+    next(e);
   }
 }
 
@@ -40,8 +42,9 @@ export async function deleteUserById(req, res) {
     if (foundUser) {
       return res.status(201).send(foundUser);
     }
+    return next(new Error());
   } catch (e) {
-    console.log('delete error');
+    next(e);
   }
 }
 
@@ -58,7 +61,8 @@ export async function updateUserById(req, res) {
       delete data.password;
       return res.status(201).send(data);
     }
+    return next(new Error());
   } catch (e) {
-    console.log('update error');
+    next(e);
   }
 }
