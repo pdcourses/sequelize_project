@@ -6,3 +6,5 @@ export const ACTIONS = {
   UPDATE: 'UPDATE',
   DELETE: 'DELETE',
 };
+
+export const TOKEN_KEY = 'secret';
